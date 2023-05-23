@@ -1,0 +1,49 @@
+<LinkTo @route="event" @model={{this.model.slug}} class="event-summary__img-holder">
+  <img src="https://picsum.photos/180/120" alt={{this.model.name}} title={{this.model.name}} class="event-summary__img">
+</LinkTo>
+
+<h1 class="event-summary__title">
+  <LinkTo @route="event" @model={{this.model.slug}} class="event-summary__title-link">
+    <span>{{this.model.name}}</span>
+  </LinkTo>
+</h1>
+
+<span class="event-summary__info">{{short-date this.model.eventDate this.model.startTime this.model.endTime}}</span>
+<span class="event-summary__info">{{this.model.location}}</span>
+
+
+
+
+{{!-- // /* Additional styles */
+
+// // .event-summary__img-holder {
+// //   text-align: center;
+// // }
+
+// .event-summary__title {
+//   justify-items: start; /* Pushes content to the left */
+// }
+
+// // .event-summary__info {
+// //   text-align: center;
+// // } --}}
+
+{{!-- 
+
+.event-summary {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Adjust the rows as needed */
+  align-items: center;
+  justify-items: start; /* Pushes content to the left */
+  text-align: center;
+  overflow: hidden; /* Prevent content from overflowing */
+  // width: calc(16.666% - 33.33px); /* Adjust the width as needed */
+  background: white;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  border: solid 1px #dcd9d3;
+  border-radius: 5px;
+  // position: relative;
+  // margin-right: 33.33px; /* Adjust the spacing between the cards */
+} --}}

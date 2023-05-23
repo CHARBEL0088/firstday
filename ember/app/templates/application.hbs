@@ -1,0 +1,13 @@
+<header class="header">
+  <div class="header__container">
+    <h1 class="header__logo">
+      <LinkTo @route="application" class="header__logo-link">Lebtivity</LinkTo>
+    </h1>
+
+    <div class="header__create-btn">
+      <LinkTo @route="events.new" class="btn btn_color_green">Add an event</LinkTo>
+    </div>
+  </div>
+</header>
+
+{{outlet}}

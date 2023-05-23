@@ -1,0 +1,568 @@
+// // // exercise 1
+// // // -----------
+
+// // // initial event-summary.hbs::after
+// // // <LinkTo @route="event" @model={{this.model.slug}} class="event-summary__img-holder">
+// // //   <img src="https://picsum.photos/180/120" alt={{this.model.name}} title={{this.model.name}} class="event-summary__img">
+// // // </LinkTo>
+
+// // // <h1 class="event-summary__title">
+// // //   <LinkTo @route="event" @model={{this.model.slug}} class="event-summary__title-link">
+// // //     <span>{{this.model.name}}</span>
+// // //   </LinkTo>
+// // // </h1>
+
+// // // <span class="event-summary__info">{{short-date this.model.eventDate this.model.startTime this.model.endTime}}</span>
+// // // <span class="event-summary__info">{{this.model.location}}</span>
+
+
+
+// // inital: event-summary.scc
+// // .event-summary {
+// //   margin-right: 20px;
+// //   margin-bottom: 20px;
+// //   padding: 10px;
+// //   box-sizing: border-box;
+// //   border: solid 1px #dcd9d3;
+// //   border-radius: 5px;
+// //   position: relative;
+// //   width: 200px;
+// //   float: left;
+// //   background: white;
+// // }
+
+// // .event-summary:nth-of-type(6n+6) {
+// //   margin-right: 0;
+// // }
+
+// // .event-summary__img-holder {
+// //   display: block;
+// //   position: relative;
+
+// //   &:after {
+// //     width: 100%;
+// //     height: 3px;
+// //     position: absolute;
+// //     left: 0;
+// //     bottom: 0;
+// //     background-color: #843964;
+// //     content: ' ';
+// //     opacity: 0;
+// //     transition: opacity .2s linear;
+// //   }
+
+// //   &:hover:after {
+// //     opacity: 1;
+// //   }
+// // }
+
+// // .event-summary__img {
+// //   display: block;
+// //   width: 180px;
+// //   height: 120px;
+// // }
+
+// // .event-summary__title {
+// //   line-height: normal;
+// //   margin: 0;
+// //   padding: 0;
+// //   font-size: 17px;
+// //   height: 40px;
+// //   overflow: hidden;
+// //   margin: 10px 0;
+// // }
+
+// // .event-summary__title-link {
+// //   font-weight: 600;
+// //   color: #581c3b;
+// //   text-decoration: none;
+// // }
+
+// // .event-summary__info {
+// //   display: block;
+// //   font-size: 14px;
+// //   line-height: 25px;
+// //   white-space: nowrap;
+// //   overflow: hidden;
+// //   text-overflow: ellipsis;
+// // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // ////////better version
+// // /// 
+// // /// 
+// // /// 
+
+// // // <LinkTo @route="event" @model={{this.model.slug}} class="event-summary__img-holder">
+// // //   <img src="https://picsum.photos/180/120" alt={{this.model.name}} title={{this.model.name}} class="event-summary__img">
+// // // </LinkTo>
+
+// // // <h1 class="event-summary__title">
+// // //   <LinkTo @route="event" @model={{this.model.slug}} class="event-summary__title-link">
+// // //     <span>{{this.model.name}}</span>
+// // //   </LinkTo>
+// // // </h1>
+
+// // // <span class="event-summary__info">{{short-date this.model.eventDate this.model.startTime this.model.endTime}}</span>
+// // // <span class="event-summary__info">{{this.model.location}}</span>
+
+
+
+
+
+
+
+// // // .event-summary {
+// // //   margin-right: 20px;
+// // //   margin-bottom: 20px;
+// // //   padding: 10px;
+// // //   box-sizing: border-box;
+// // //   border: solid 1px #dcd9d3;
+// // //   border-radius: 5px;
+// // //   position: relative;
+// // //   width: 200px;
+// // //   background: white;
+// // //   display: grid;
+// // //   grid-template-rows: auto 1fr auto; /* Adjust the rows as needed */
+// // //   align-items: center;
+// // //   justify-items: center;
+// // //   text-align: center;
+// // //   display: grid;
+// // //   grid-template-columns: auto;
+// // //   grid-template-rows: auto 1fr auto; /* Adjust the rows as needed */
+// // //   align-items: center;
+// // //   justify-items: start; /* Pushes content to the left */
+// // //   text-align: center;
+// // //   display: grid;
+// // //   grid-template-columns: auto;
+// // //   grid-template-rows: auto 1fr auto; /* Adjust the rows as needed */
+// // //   align-items: center;
+// // //   justify-items: start; /* Pushes content to the left */
+// // //   text-align: center;
+// // //   border-radius: 5px; /* Add border-radius to create rounded corners */
+// // //   overflow: hidden; /* Prevent content from overflowing */
+
+// // // }
+
+// // // .event-summary:nth-of-type(6n+6) {
+// // //   margin-right: 0;
+// // // }
+
+// // // .event-summary__img-holder {
+// // //   display: block;
+// // //   position: relative;
+// // //   justify-self: start;
+// // //   justify-self: start; /* Pushes image to the left */
+// // //   width: 100%; /* Make the image holder span the entire width */
+// // //   height: 0; /* Set initial height to 0 */
+// // //   padding-bottom: 66.67%; /* Maintain 3:2 aspect ratio for the image holder */
+// // //   position: relative;
+// // //   overflow: hidden;
+
+// // //   &:after {
+// // //     width: 100%;
+// // //     height: 3px;
+// // //     position: absolute;
+// // //     left: 0;
+// // //     bottom: 0;
+// // //     background-color: #843964;
+// // //     content: ' ';
+// // //     opacity: 0;
+// // //     transition: opacity .2s linear;
+// // //   }
+
+// // //   &:hover:after {
+// // //     opacity: 1;
+// // //   }
+// // // }
+
+// // // .event-summary__img {
+// // //   display: block;
+// // //   width: 180px;
+// // //   height: 120px;
+// // //   position: absolute;
+// // //   top: 0;
+// // //   left: 0;
+// // //   width: 100%;
+// // //   height: 100%;
+// // //   object-fit: cover;
+// // // }
+
+// // // .event-summary__title {
+// // //   line-height: normal;
+// // //   margin: 0;
+// // //   padding: 0;
+// // //   font-size: 17px;
+// // //   height: 40px;
+// // //   overflow: hidden;
+// // //   margin: 10px 0;
+// // // }
+
+// // // .event-summary__title-link {
+// // //   font-weight: 600;
+// // //   color: #581c3b;
+// // //   text-decoration: none;
+// // // }
+
+// // // .event-summary__info {
+// // //   display: block;
+// // //   font-size: 14px;
+// // //   line-height: 25px;
+// // //   white-space: nowrap;
+// // //   overflow: hidden;
+// // //   text-overflow: ellipsis;
+// // // }
+
+// // // /* CSS Grid changes */
+
+// // // @media (max-width: 440px) {
+// // //   .event-summary {
+// // //     width: 100%;
+// // //     margin-right: 0;
+// // //     float: none;
+// // //   }
+// // // }
+
+// // // @media (min-width: 440px) and (max-width: 879px) {
+// // //   .event-summary {
+// // //     width: 50%;
+// // //     float: left;
+// // //   }
+// // // }
+
+// // // @media (min-width: 880px) and (max-width: 1319px) {
+// // //   .event-summary {
+// // //     width: 25%;
+// // //     float: left;
+// // //   }
+// // // }
+
+// // // @media (min-width: 1320px) {
+// // //   .event-summary {
+// // //     width: 16.66667%;
+// // //     float: left;
+// // //   }
+// // // }
+
+// // // /* Additional styles */
+
+// // // .event-summary__img-holder {
+// // //   text-align: center;
+// // // }
+
+// // // .event-summary__title {
+// // //   text-align: center;
+// // // }
+
+// // // .event-summary__info {
+// // //   text-align: center;
+// // // }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // ////even a better one
+// // // <LinkTo @route="event" @model={{this.model.slug}} class="event-summary__img-holder">
+// // //   <img src="https://picsum.photos/180/120" alt={{this.model.name}} title={{this.model.name}} class="event-summary__img">
+// // // </LinkTo>
+
+// // // <h1 class="event-summary__title">
+// // //   <LinkTo @route="event" @model={{this.model.slug}} class="event-summary__title-link">
+// // //     <span>{{this.model.name}}</span>
+// // //   </LinkTo>
+// // // </h1>
+
+// // // <span class="event-summary__info">{{short-date this.model.eventDate this.model.startTime this.model.endTime}}</span>
+// // // <span class="event-summary__info">{{this.model.location}}</span>
+
+
+
+// // // .event-summary {
+// // //   border: solid 1px #dcd9d3;
+// // //   border-radius: 5px;
+// // //   background: white;
+// // //   display: grid;
+// // //   grid-template-rows: auto 1fr auto; /* Adjust the rows as needed */
+// // //   align-items: center;
+// // //   justify-items: start; /* Pushes content to the left */
+// // //   text-align: center;
+// // //   border-radius: 5px; /* Add border-radius to create rounded corners */
+// // //   overflow: hidden; /* Prevent content from overflowing */
+// // //   margin-bottom: 20px;
+// // //   padding: 10px;
+// // //   box-sizing: border-box;
+// // //   position: relative;
+// // // }
+
+// // // .event-summary:nth-of-type(6n+6) {
+// // //   margin-right: 0;
+// // // }
+
+// // // .event-summary__img-holder {
+// // //   display: block;
+// // //   position: relative;
+// // //   justify-self: start;
+// // //   width: 100%; /* Make the image holder span the entire width */
+// // //   height: 0; /* Set initial height to 0 */
+// // //   padding-bottom: 66.67%; /* Maintain 3:2 aspect ratio for the image holder */
+// // //   position: relative;
+// // //   overflow: hidden;
+
+// // //   &:after {
+// // //     width: 100%;
+// // //     height: 3px;
+// // //     position: absolute;
+// // //     left: 0;
+// // //     bottom: 0;
+// // //     background-color: #843964;
+// // //     content: ' ';
+// // //     opacity: 0;
+// // //     transition: opacity .2s linear;
+// // //   }
+
+// // //   &:hover:after {
+// // //     opacity: 1;
+// // //   }
+// // // }
+
+// // // .event-summary__img {
+// // //   display: block;
+// // //   width: 180px;
+// // //   height: 120px;
+// // //   position: absolute;
+// // //   top: 0;
+// // //   left: 0;
+// // //   width: 100%;
+// // //   height: 100%;
+// // //   object-fit: cover;
+// // // }
+
+// // // .event-summary__title {
+// // //   line-height: normal;
+// // //   margin: 10px 0;
+// // //   padding: 0;
+// // //   font-size: 17px;
+// // //   overflow: hidden;
+// // // }
+
+// // // .event-summary__title-link {
+// // //   font-weight: 600;
+// // //   color: #581c3b;
+// // //   text-decoration: none;
+// // // }
+
+// // // .event-summary__info {
+// // //   display: block;
+// // //   font-size: 14px;
+// // //   line-height: 25px;
+// // //   white-space: nowrap;
+// // //   overflow: hidden;
+// // //   text-overflow: ellipsis;
+// // // }
+
+// // // /* CSS Grid changes */
+
+// // // @media (max-width: 440px) {
+// // //   .event-summary {
+// // //     width: 100%;
+// // //     margin-right: 0;
+// // //     float: none;
+// // //   }
+// // // }
+
+// // // @media (min-width: 440px) and (max-width: 879px) {
+// // //   .event-summary {
+// // //     width: 50%;
+// // //     float: left;
+// // //   }
+// // // }
+
+// // // @media (min-width: 880px) and (max-width: 1319px) {
+// // //   .event-summary {
+// // //     width: 25%;
+// // //     float: left;
+// // //   }
+// // // }
+
+// // // @media (min-width: 1320px) {
+// // //   .event-summary {
+// // //     width: 16.66667%;
+// // //     float: left;
+// // //   }
+// // // }
+
+// // // /* Additional styles */
+
+// // // .event-summary__img-holder {
+// // //   text-align: center;
+// // // }
+
+// // // .event-summary__title {
+// // //   text-align: center;
+// // // }
+
+// // // .event-summary__info {
+// // //   text-align: center;
+// // // }
+
+
+
+
+// ////better scss
+// /// .event-summary {
+//   border: solid 1px #dcd9d3;
+//   border-radius: 5px;
+//   background: white;
+//   display: grid;
+//   grid-template-rows: auto 1fr auto; /* Adjust the rows as needed */
+//   align-items: center;
+//   justify-items: start; /* Pushes content to the left */
+//   text-align: center;
+//   border-radius: 5px; /* Add border-radius to create rounded corners */
+//   overflow: hidden; /* Prevent content from overflowing */
+//   margin-bottom: 20px;
+//   padding: 10px;
+//   box-sizing: border-box;
+//   position: relative;
+// }
+
+// .event-summary:nth-of-type(6n+6) {
+//   margin-right: 0;
+// }
+
+// .event-summary__img-holder {
+//   display: block;
+//   position: relative;
+//   justify-self: start;
+//   width: 100%; /* Make the image holder span the entire width */
+//   height: 0; /* Set initial height to 0 */
+//   padding-bottom: 66.67%; /* Maintain 3:2 aspect ratio for the image holder */
+//   position: relative;
+//   overflow: hidden;
+
+//   &:after {
+//     width: 100%;
+//     height: 3px;
+//     position: absolute;
+//     left: 0;
+//     bottom: 0;
+//     background-color: #843964;
+//     content: ' ';
+//     opacity: 0;
+//     transition: opacity .2s linear;
+//   }
+
+//   &:hover:after {
+//     opacity: 1;
+//   }
+// }
+
+// .event-summary__img {
+//   display: block;
+//   width: 180px;
+//   height: 120px;
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+// }
+
+// .event-summary__title {
+//   line-height: normal;
+//   margin: 10px 0;
+//   padding: 0;
+//   font-size: 17px;
+//   overflow: hidden;
+// }
+
+// .event-summary__title-link {
+//   font-weight: 600;
+//   color: #581c3b;
+//   text-decoration: none;
+// }
+
+// .event-summary__info {
+//   display: block;
+//   font-size: 14px;
+//   line-height: 25px;
+//   white-space: nowrap;
+//   overflow: hidden;
+//   text-overflow: ellipsis;
+// }
+
+// /* CSS Grid changes */
+
+// @media (max-width: 440px) {
+//   .event-summary {
+//     width: 100%;
+//     margin-right: 0;
+//     grid-template-columns: auto;
+//     grid-template-rows: auto 1fr auto;
+//     float: none;
+//   }
+// }
+
+// @media (min-width: 440px) and (max-width: 879px) {
+//   .event-summary {
+//     width: 50%;
+//     float: left;
+//   }
+// }
+
+// @media (min-width: 880px) and (max-width: 1319px) {
+//   .event-summary {
+//     width: 25%;
+//     float: left;
+//   }
+// }
+
+// @media (min-width: 1320px) {
+//   .event-summary {
+//     width: 16.66667%;
+//     float: left;
+//   }
+// }
+
+// /* Additional styles */
+
+// .event-summary__img-holder {
+//   text-align: center;
+// }
+
+// .event-summary__title {
+//   text-align: center;
+// }
+
+// .event-summary__info {
+//   text-align: center;
+// }

@@ -1,0 +1,11 @@
+<div class="sub-header">
+  <div class="sub-header__container">
+    {{model.length}} Events in Lebanon this month
+  </div>
+</div>
+
+<div class="container">
+  {{#each model as |event|}}
+    <EventSummary @model={{event}} />
+  {{/each}}
+</div>

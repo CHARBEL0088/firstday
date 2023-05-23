@@ -1,0 +1,22 @@
+<article class="event">
+  <div class="event__image-section">
+    <img src="https://picsum.photos/180/120" alt={{model.name}} title={{model.name}} class="event__image">
+    <LinkTo @route="events.edit" @model={{model.id}} class="event__btn">Edit</LinkTo>
+  </div>
+  <div class="event__content-section">
+    <h1 class="event__name">
+      {{model.name}}
+    </h1>
+    <div class="event__info-wrapper">
+      <div class="event__info">
+        On {{model.eventDate}} from {{model.startTime}} to {{model.endTime}}
+      </div>
+      <div class="event__info">
+        {{model.location}}
+      </div>
+    </div>
+    <p class="event__description">
+      {{model.description}}
+    </p>
+  </div>
+</article>
